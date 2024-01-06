@@ -203,18 +203,30 @@ body {
   margin: 20px;
 }
 
-#weather-content {
+#weather-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+#weather-content,
+.forecast-day {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 75px;
   margin-bottom: 50px;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
-#weather-temp {
+.icon-large {
+  width: 100px;
+}
+
+.temp {
   font-size: 3rem;
+  font-weight: bold;
 }
 
 .item-title {
@@ -233,7 +245,8 @@ body {
   border: solid 5px var(--main-color);
 }
 
-.weather-item {
+.weather-item,
+.forecast-item {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
@@ -243,11 +256,15 @@ body {
   font-weight: 300;
 } */
 
-.weather-value {
+.weather-value,
+.forecast-value {
   font-weight: bold;
 }
 
-/* #forecast-content {
+#forecast-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-} */
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
