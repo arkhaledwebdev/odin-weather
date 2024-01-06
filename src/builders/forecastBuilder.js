@@ -1,10 +1,10 @@
 // Assuming you have a parent element with an id of "forecast-content" where you want to append the generated HTML
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { addDays, isEqual } from "date-fns";
+import { addDays, format, isEqual } from "date-fns";
 
 function createForecastDay(dayNumber, dayData) {
-  console.log(dayData);
+  const dateOfDay = new Date(dayData.dt * 1000);
 
   const container = document.createElement("div");
   container.classList.add("forecast-day");
@@ -16,6 +16,10 @@ function createForecastDay(dayNumber, dayData) {
   icon.src = `https://openweathermap.org/img/wn/${dayData.weather[0].icon}@4x.png`;
   icon.alt = "forecast image";
 
+  const dayDateNo = document.createElement("div");
+  dayDateNo.classList.add("date");
+  dayDateNo.textContent = format(dateOfDay, "dd/MM");
+
   const temp = document.createElement("div");
   temp.classList.add("temp");
   temp.id = `forecast-temp-${dayNumber}`;
@@ -26,6 +30,7 @@ function createForecastDay(dayNumber, dayData) {
   tempMinMax.id = `forecast-${dayNumber}-temp-min-max`;
   tempMinMax.textContent = `${dayData.main.temp_min}°C - ${dayData.main.temp_max}°C`;
 
+  container.appendChild(dayDateNo);
   container.appendChild(icon);
   container.appendChild(temp);
   container.appendChild(tempMinMax);

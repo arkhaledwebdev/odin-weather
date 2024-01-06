@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Weather</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="../dist/main.js"></script>
+    <script src="../dist/main.js" defer></script>
   </head>
   <body>
     <div class="header">
       <div class="title">Odin Weather</div>
 
-      <div id="current-city">Cairo, EG</div>
+      <div id="current-city">Cairo</div>
 
       <div class="button-container">
         <button class="button" id="button-refresh">Refresh</button>
+        <input
+          type="text"
+          id="city-input"
+          required
+          placeholder="search for a city"
+        />
         <button class="button" id="button-change">Change</button>
       </div>
     </div>
@@ -29,5 +35,7 @@
         <div id="forecast-content"></div>
       </div>
     </div>
+    <div id="loader" class="loader hidden"></div>
+    <div id="error-display" class="hidden"></div>
   </body>
 </html>
